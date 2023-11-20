@@ -1,0 +1,5 @@
+export const GET_ALL_DOGS = 'GET_ALL_DOGS';
+export const SET_SELECTED = 'SET_SELECTED';
+export const SET_USER_STATE = 'SET_USER_STATE';
+export const GET_USER_STATE = 'GET_USER_STATE';
+export const SET_MODAL_VISIBLE = 'SET_MODAL_VISIBLE';

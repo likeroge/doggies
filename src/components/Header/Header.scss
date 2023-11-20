@@ -1,0 +1,23 @@
+.header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // font-family: Roboto;
+  font-size: 32px;
+  background-color: #212121;
+  color: #42b883;
+  text-shadow: #42b883 0px 0px 5px;
+  padding: 0 10px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: 769px) {
+    font-size: 24px;
+  }
+}
