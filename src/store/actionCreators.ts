@@ -3,17 +3,6 @@ import {
   GET_ALL_DOGS, SET_MODAL_VISIBLE, SET_SELECTED, SET_USER_STATE,
 } from './actionTypes';
 import { IUserState } from '../types/UserTypes';
-// import * as actionTypes from './actionTypes';
-
-// export const getTodos = (todos:any) => ({
-//   type: 'GET_POSTS',
-//   payload: todos,
-// });
-
-// export const getTodosFromUrl = () => (dispatch:any) => {
-//   axios.get('https://jsonplaceholder.typicode.com/posts')
-//     .then((res) => dispatch(getTodos(res.data)));
-// };
 
 export const getAllDogs = (dogs: any) => ({
   type: GET_ALL_DOGS,
