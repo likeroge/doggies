@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, useEffect } from 'react';
+import React, { BaseSyntheticEvent } from 'react';
 import './DogPage.scss';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ function DogPage({
   dogsReducer, setUserState, setModalState,
 }:any) {
   const {
-    register, handleSubmit, watch, formState: { errors },
+    register, handleSubmit, formState: { errors },
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (
@@ -27,7 +27,11 @@ function DogPage({
       phone: data.phone,
       selectedDogId: dogsReducer.selected.id,
     });
-
+    localStorage.setItem('user', JSON.stringify({
+      username: data.username,
+      phone: data.phone,
+      selectedDogId: dogsReducer.selected.id,
+    }));
     setModalState(true);
     e?.target.reset();
   };
@@ -36,8 +40,7 @@ function DogPage({
     <div className="dog-page-wrapper">
       <div className="dog-page">
         <div>
-          <img className="dog-page__image" src={dogsReducer.selected.image} alt="" />
-          {/* <img src="https://images.dog.ceo/breeds/pug/DSCF7495-2.jpg" alt="" width={350} /> */}
+          <img className="dog-pageimage" src={dogsReducer.selected.image} alt="" width={350} />
         </div>
         <form className="dog-page__form" onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="username">

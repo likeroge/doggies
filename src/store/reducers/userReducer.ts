@@ -7,7 +7,6 @@ const initialState:IUserState = {
   selectedDogId: null,
 };
 
-// eslint-disable-next-line default-param-last
 export const userReducer = (state:IUserState = initialState, action: any) => {
   switch (action.type) {
     case SET_USER_STATE:

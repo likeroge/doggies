@@ -4,7 +4,6 @@ const initialState = {
   modalVisible: false,
 };
 
-// eslint-disable-next-line default-param-last
 export const uiReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case SET_MODAL_VISIBLE:

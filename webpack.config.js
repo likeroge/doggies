@@ -30,7 +30,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'assets/[hash][ext][query]',
-    clean: true, // Очищает dist
+    clean: true,
   },
 
   devServer: {
@@ -54,7 +54,6 @@ module.exports = {
           {loader: 'sass-loader', options: {sourceMap: true}},
         ],
       },
-
       {
         test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
         type: mode === 'production' ? 'asset' : 'asset/resource',

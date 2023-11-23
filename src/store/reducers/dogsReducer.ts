@@ -6,7 +6,6 @@ const initialState = {
   selected: '',
 };
 
-// eslint-disable-next-line default-param-last
 export const dogsReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case GET_ALL_DOGS:

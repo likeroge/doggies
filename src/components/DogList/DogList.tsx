@@ -1,16 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { IDogData } from '../../types/DogsTypes';
 import DogCard from '../DogCard/DogCard';
 import { getDogsFromApi, setSelectedDog } from '../../store/actionCreators';
 import './DogList.scss';
+import useViewSize from '../../hooks/useViewSize';
 
-function DogList({ dogsReducer, getAllDogs, selectDog }: any) {
+const DogList = memo(({ dogsReducer, getAllDogs, selectDog }: any) => {
   useEffect(() => {
     getAllDogs();
   }, []);
+
+  const size = useViewSize();
+
   return (
     <div className="dog-list">
+      {/* h1 появится только на экранe с шириной < 376 */}
+      {
+        size < 376 && (<h1>Ваш волкодав:</h1>)
+      }
       {dogsReducer.dogs
           && dogsReducer.dogs.length > 0
           && dogsReducer.dogs
@@ -24,11 +32,9 @@ function DogList({ dogsReducer, getAllDogs, selectDog }: any) {
             ))}
     </div>
   );
-}
+});
 
 const mapDispatchToProps = (dispatch: any) => ({
-  // add: () => dispatch({ type: 'ADD_TODO' }),
-  // getPosts: () => dispatch(getTodosFromUrl()),
   getAllDogs: () => dispatch(getDogsFromApi()),
   selectDog: (id: any) => dispatch(setSelectedDog(id)),
 });

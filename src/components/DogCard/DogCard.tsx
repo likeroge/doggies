@@ -24,9 +24,9 @@ export default function DogCard({ dogCardProps, selectDog, selectedDog }:
   };
 
   useEffect(() => {
-    const selectedDog = localStorage.getItem('selectedDog');
-    if (selectedDog) {
-      selectDog(+selectedDog);
+    const dogFromLocalStorage = localStorage.getItem('selectedDog');
+    if (dogFromLocalStorage) {
+      selectDog(+dogFromLocalStorage);
     }
   }, []);
 
@@ -41,7 +41,13 @@ export default function DogCard({ dogCardProps, selectDog, selectedDog }:
       }}
     >
       <div className="dog-card__image">
-        <img className="dog-card__image_source" src={dogCardProps.image} alt="" width={250} />
+        <img
+          className="dog-card__image_source"
+          src={dogCardProps.image}
+          alt=""
+          width={250}
+          loading="lazy"
+        />
       </div>
       <div className="dog-card__footer">
         <h1 className="dog-card__title">

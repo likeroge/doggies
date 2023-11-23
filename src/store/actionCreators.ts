@@ -1,16 +1,16 @@
-import axios from 'axios';
 import {
   GET_ALL_DOGS, SET_MODAL_VISIBLE, SET_SELECTED, SET_USER_STATE,
 } from './actionTypes';
 import { IUserState } from '../types/UserTypes';
+import api, { baseUrl } from '../api/api';
 
 export const getAllDogs = (dogs: any) => ({
   type: GET_ALL_DOGS,
   payload: dogs,
 });
 
-export const getDogsFromApi = () => (dispatch:any) => {
-  axios.get('https://dog.ceo/api/breed/pug/images/random/10')
+export const getDogsFromApi = () => async (dispatch:any) => {
+  api.get(baseUrl)
     .then((res) => dispatch(getAllDogs(res.data)));
 };
 

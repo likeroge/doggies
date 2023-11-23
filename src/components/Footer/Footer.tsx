@@ -10,7 +10,6 @@ function Footer({ dogsReducer }:any) {
         (dogsReducer.selected.id === 0 || dogsReducer.selected.id > 0) && (
         <h3 className="footer__selected-text">
           Волкодав ID:
-          {' '}
           {dogsReducer.selected.id}
         </h3>
         )
