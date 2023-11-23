@@ -40,7 +40,7 @@ function DogPage({
     <div className="dog-page-wrapper">
       <div className="dog-page">
         <div>
-          <img className="dog-pageimage" src={dogsReducer.selected.image} alt="" width={350} />
+          <img className="dog-page__image" src={dogsReducer.selected.image} alt="" />
         </div>
         <form className="dog-page__form" onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="username">
@@ -54,10 +54,15 @@ function DogPage({
             {errors.phone && <span>Введите номер телефона</span>}
           </label>
           <button className="dog-page__form_button" type="submit">Подтвердить</button>
-
+          <button
+            className="home-link"
+            type="button"
+          >
+            <Link to="/">На главную</Link>
+          </button>
         </form>
       </div>
-      <Link to="/" className="home-link">На главную</Link>
+
     </div>
   );
 }
